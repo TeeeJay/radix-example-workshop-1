@@ -1,7 +1,7 @@
 apiVersion: radix.equinor.com/v1
 kind: RadixApplication
 metadata:
-  name: apple
+  name: kiwi
 spec:
   environments:
     - name: production
