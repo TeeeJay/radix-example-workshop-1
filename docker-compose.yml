@@ -1,12 +1,22 @@
 version: '3'
 services:
   www:
-    build: ./www
+    build:
+      context: ./www
+      args:
+        - http_proxy=http://www-authproxy.statoil.net:80
+        - https_proxy=http://www-authproxy.statoil.net:80
     ports:
      - "3001:3001"
     environment:
      - ECHO_URL=http://echo:3000
+    links:
+      - echo
   echo:
-    build: ./echo
+    build:
+      context: ./echo
+      args:
+        - http_proxy=http://www-authproxy.statoil.net:80
+        - https_proxy=http://www-authproxy.statoil.net:80
     ports:
      - "3000:3000"

@@ -2,6 +2,12 @@
 # -- Base node image with app
 #
 FROM node:10-alpine AS base
+
+#ENV http_proxy=${HTTP_PROXY} \
+#    HTTP_PROXY=${HTTP_PROXY} \
+#    https_proxy=${HTTPS_PROXY} \
+#    HTTPS_PROXY=${HTTPS_PROXY}
+
 WORKDIR /usr/src/app
 COPY package.json package-lock.json app.js ./
 RUN mkdir -p ./bin ./routes
